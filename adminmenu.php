@@ -16,7 +16,6 @@
 
                 <?php include 'common/navtop_admin.php'; ?>
                 <?php include 'user/adminmenucontent.php'; ?>
-                
                 <?php include 'js/js_files.php'; ?>
             </body>
         </html>

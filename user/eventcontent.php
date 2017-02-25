@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="asdf">
-				<img src="image/carousel3.jpg" style="width:100%;height:60%;">
+				<img src="image/carousel3.jpg" style="width:100%;height:70%;">
 				<div class="caption post-content" style="color: black;">
 				<center>
 					<br><br><br><br><div><h1><b>Our Restaurant Events</b></h1></div>
@@ -46,7 +46,7 @@
 										  			<div class="col-md-5">
 										    			<div class="padding-top"><label class="no-margin"><?php echo $row['TITLE']; ?></label></div>
 										    			<div><small><?php echo $row['DESCRIPTION']; ?></small></div>
-										    			<div><small><?php echo $row['DATE']; ?></small></div>
+										    			<div><small><?php echo $row['start']; ?></small></div>
 										    		</div>
 										    	</div>
 										  	</div>
@@ -60,6 +60,9 @@
 		</div>
 	</div>
 </div>
+					<div class="padding-bottom">
+						<CENTER><h4><a href="event.php" class="cd-top">Back to Top</a></h4></CENTER>
+					</div>
 
 							<?php
 								include 'conn.php';
@@ -85,8 +88,13 @@
 			        			<CENTER><label>Event Description: <span><?php echo $row['DESCRIPTION']; ?></span></label></CENTER>
 			        		</div>
 			        		<div class="form-group">
-			        			<CENTER><label>Date of Event: <span><?php echo $row['DATE']; ?></span></label></CENTER>
+			        			<CENTER><label>Date and Time Start: <span><?php echo $row['start']; ?></span></label></CENTER>
 			        		</div>
+
+			        		<div class="form-group">
+			        			<CENTER><label>Date and Time End: <span><?php echo $row['start']; ?></span></label></CENTER>
+			        		</div>
+
 			        	</center>
 			      	</div>
 		    	</div>

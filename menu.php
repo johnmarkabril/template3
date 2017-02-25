@@ -15,8 +15,6 @@
 			<body>
 					<?php include 'common/nav_menu.php'; ?>
 					<?php include 'user/menucontent.php' ; ?>
-
-
 					<?php include 'common/footer.php'; ?>
 					<?php include 'js/js_files.php'; ?>
 			</body>

@@ -1,38 +1,27 @@
 <?php
 
-$fname = $_POST['fname'];
-$lname = $_POST['lname'];
-$email = $_POST['email'];
-$message = $_POST['message'];
-$mnum = $_POST['mnum'];
+	$fname = $_POST['fname'];
+	$lname = $_POST['lname'];
+	$email = $_POST['email'];
+	$message = $_POST['message'];
+	$mnum = $_POST['mnum'];
+	$mark = $_POST['mark'];
+	$date = date('m/d/Y h:i:sa');
 
+	include 'conn.php';
 
+	$sql = "INSERT INTO contact VALUES ('','$fname','$lname','$email','$message','$mnum','$date','$mark') ";
 
-if ( $fname && $lname && $email && $message && $mnum  ) {
+	if($connection->query($sql) === TRUE) {
+			echo "<script type='text/javascript'>alert('Message Sent');</script>";
+			echo "<script>setTimeout(\"location.href = '/dalethesis/contact.php';\",500);</script>";
+		} else {
+			echo "<script type='text/javascript'>alert('Message Not Sent');</script>";
+			echo "<script>setTimeout(\"location.href = '/dalethesis/contact.php';\",500);</script>";
+		}
+	 
+	$connection->close();
 
-	mysql_connect('localhost' , 'root' , '') or die("Fail to Connect");
-
-	mysql_select_db('dalethesis');
-
-	mysql_query("INSERT INTO contact(No,fname,lname,email,message,mnum) VALUES ('','$fname','$lname','$email','$message','$mnum') ");
-
-	$Submit = mysql_affected_rows();
-
-				echo "	<script type='text/javascript'>
-				if(confirm('Message Sent!'))
-							{
-								window.location.href= \"contact.php\";
-							}else{
-								window.location.href= \"contact.php\";
-							}
-					</script>";
-	
-
-}
-
-else {
-
-}
-mysql_close();
 
 ?>
+

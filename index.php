@@ -13,6 +13,7 @@
 				<link href="css/style_custom.css" rel="stylesheet"/>
 			</head>
 			<body>
+				<?php include 'common/newnav.php'; ?>
 				<?php include 'user/homecarousel.php'; ?>
 				<?php include 'common/nav_menu.php'; ?>
 				<?php include 'user/bodycontent.php'; ?>

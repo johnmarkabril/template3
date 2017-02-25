@@ -3,9 +3,11 @@
 	$NAME = $_POST['NAME'];
 	$TITLE = $_POST['TITLE'];
 	$DESCRIPTION = $_POST['DESCRIPTION'];
-	$DATE = $_POST['DATE'];
-	$HOUR = $_POST['HOUR'];
+	$start = $_POST['start'];
+	$end = $_POST['end'];
+	$date = date('m/d/Y h:i:sa');
     $loc = $_SERVER['DOCUMENT_ROOT']."/dalethesis/image/";
+    $status = $_POST['status'];
 
 if ( isset($_POST['Submit']) ) {
         $image_name = addslashes($_FILES['image']['name']);
@@ -13,16 +15,25 @@ if ( isset($_POST['Submit']) ) {
         move_uploaded_file($_FILES['image']['tmp_name'], $loc . $_FILES['image']['name']);
 
 		include 'conn.php';
-
-		$sql = "INSERT INTO event VALUES ('','$NAME','$TITLE','$DESCRIPTION','$DATE','$HOUR','$image_name') ";
+		$sql = "INSERT INTO event VALUES ('','$NAME','$TITLE','$DESCRIPTION','$start','$end','$image_name','$status') ";
 
 		if($connection->query($sql) === TRUE) {
-			header("Location: /dalethesis/adminevent.php");
+			echo "<script type='text/javascript'>alert('Event Added');</script>";
+			echo "<script>setTimeout(\"location.href = '/dalethesis/adminevent.php';\",500);</script>";
+
+			$note = "Admin added new event named: " . $TITLE . " ";
+
+			$SQL1 = "INSERT into adminactivity VALUES ('','$note','$date')";
+			if($connection->query($SQL1) === TRUE) {
+
+			}
 		} else {
-			header("Location: /dalethesis/adminevent.php");
+			echo "<script type='text/javascript'>alert('Fail to Add Event');</script>";
+			echo "<script>setTimeout(\"location.href = '/dalethesis/adminevent.php';\",500);</script>";
 		}
 	} else {
-		header("Location: /dalethesis/adminevent.php");
+			echo "<script type='text/javascript'>alert('Fail to Add Event');</script>";
+			echo "<script>setTimeout(\"location.href = '/dalethesis/adminevent.php';\",500);</script>";
 	}
 
 	$connection->close();

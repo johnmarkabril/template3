@@ -1,15 +1,18 @@
-<div class="row">
+<div class="container padding-top">
+	<div class="row">
 		<div class="col-md-12">
 			<div class="asdf">
-				<img src="image/carousel3.jpg" style="width:100%;height:60%;">
+				<img src="image/carousel3.jpg" style="width:100%;height:70%;">
 				<div class="caption post-content" style="color: black;">
 				<center>
-					<br><br><br><br><div><h1><b>Our Food Menu</b></h1></div>
+					<br><br><br><br><div><h1><b>Our Restaurant Menu</b></h1></div>
 					<h3><b><a href ="http://localhost/dalethesis/">Home </a>| Menu Page</b></h3></center>
 				</div>
 			</div>
 		</div>
-		</div>
+	</div>
+</div>
+
 <div class="container">
 	<center>
 
@@ -19,21 +22,41 @@
 					<?php
 
 						include 'conn.php';
-
+						$stat = "available";
 						if ( isset($_GET['categs']) ) {
 							$categs = $_GET['categs'];
-							$query = "SELECT * FROM product WHERE Category = '". $categs ."'";
+							$query = "SELECT * FROM product WHERE Category = '". $categs ."' and status ='".$stat."'";
 							$data = $connection->query($query);
 					?>
 
-							<h1><strong style="">Menu of <?php echo $categs; ?></strong></h1>
-					<?php
+						<div class="col-md-3">
+							<div class="padding-top">
+								<?php include 'common/nav_side.php'; ?>
+							</div></div>
+							<div class="col-md-9">
+						<div class="panel-body no-border" style="background-color: #670a12;color:#FFFFFF;">
+							<h1 class="no-margin"><strong  style="">Menus for <?php echo $categs; ?></strong></h1>
+						</div>
+						<?php
 						} else {
-							$query = "SELECT * FROM product";
+							$query = "SELECT * FROM product WHERE status = '".$stat."'";
 							$data = $connection->query($query);
 					?>
-
-							<h1><strong style="">Our Menu</strong></h1>
+					</div>
+			<div class="col-md-3">
+				<div class="padding panel panel-default no-margin">
+				  	<div class="panel-body no-border" style="background-color: #670a12;color:#FFFFFF;">
+				    	<div><h4 class="no-margin">Menu Catergory</h4></div>
+				  	</div>
+				</div>
+							<div class="padding-top">
+								<?php include 'common/nav_side.php'; ?>
+							</div>	
+			</div>
+					<div class="col-md-9">
+						<div class="panel-body no-border" style="background-color: #670a12;color:#FFFFFF;">
+							<h4 class="no-margin"><strong style="">Menu List</strong></h4>
+						</div>
 					<?php
 						}
 							if($data->num_rows >= 1){
@@ -53,7 +76,7 @@
 						               	</a>        
 						            </div>
 						            
-						            <div class="widget-text-box" style="color: black;">
+						            <div class="widget-text-box" style="color: black; height: 23%">
 						                <b><small>
 						                        <?php echo $row['Description']; ?></small></b>
 						            </div>
@@ -71,11 +94,16 @@
 						}
 					?>
 				</div>
-			</div>
+									<div class="padding-bottom">
+						<CENTER><h4><a href="menu.php" class="cd-top">Back to All Menu List</a></h4></CENTER>
+					</div>
 		</div>
-	</center>		
+	</center>	
+</div>
 
 </div>
+
+
 <?php
 	$query = "SELECT * FROM product";
 	$data = $connection->query($query);

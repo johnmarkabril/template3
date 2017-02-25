@@ -32,13 +32,14 @@
 								  <option value="Dessert">Dessert</option>
 								  <option value="Drinks">Drinks</option>
 							</select>
-							<
-
-
 					</div>
 					<div class="form-group">
 						<label class="">IMAGE</label>
 						<input type="file" name="image" accept="image/*" required/>
+					</div>
+
+					<div class="form-group">
+						<input type="text" class="full-width form-control" style="display:none;" name="status" value="Available" readonly required/>
 					</div>
 					
 					<div>

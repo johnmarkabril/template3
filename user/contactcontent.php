@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="asdf">
-				<img src="image/carousel3.jpg" style="width:100%;height:60%;">
+				<img src="image/carousel3.jpg" style="width:100%;height:70%;">
 				<div class="caption post-content" style="color: black;">
 				<center>
 					<br><br><br><br><div><h1><b>Contact Information</b></h1></div>
@@ -30,9 +30,10 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="">FIRST NAME</label>
-									<input type="text" class="full-width form-control" name="fname"placeholder="Juan" required/>
+									<input type="text" class="full-width form-control" name="fname" placeholder="Juan" required/>
 								</div>
 							</div>
+
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="">LAST NAME</label>
@@ -42,7 +43,7 @@
 						</div>
 						<div class="form-group">
 							<label class="">EMAIL ADDRESS</label>
-							<input type="text" class="full-width form-control" name="email" placeholder="johndoe@gmail.com" required/>
+							<input type="email" class="full-width form-control" name="email" placeholder="johndoe@gmail.com" required/>
 						</div>
 						<div class="form-group">
 							<label class="">MESSAGES</label>
@@ -50,15 +51,22 @@
 						</div>
 						<div class="form-group">
 							<label class="">MOBILE NUMBER</label>
-							<input type="text" class="full-width form-control" name="mnum" placeholder="+639*********" required/>
+							<input type="text" class="full-width form-control" name="mnum" placeholder="+639123456789" pattern="^(09|\+639)\d{9}$" required/>
 						</div>
+
+						<div class="form-group">
+							<input type="text" class="full-width form-control" style="display:none;" name="mark" value="Unread" readonly required/>
+						</div>
+
 						<div>
+
 							<input type="Submit" name="btn_contact_submit" class="btn btn-success btn-lg full-width" value="Send Message"/>
 						</div>
 					</div>
 				</form>
 			</div>
 </form>
+
 
 
 	<div class="">
